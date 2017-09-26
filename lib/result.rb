@@ -1,6 +1,8 @@
 class Result
+  attr_reader :resume
+
   def initialize
-    @results = [
+    @resume = [
       # ?да? ? 2 очка, ?иногда? ? 1 очко, ?нет? ? 0 очков.
       # 30-32 очков
       "Вы явно некоммуникабельны, и это Ваша беда, так как больше всего страдаете от этого Вы сами. " +
@@ -49,13 +51,16 @@ class Result
     ]
   end
 
-  def set_points_score(points)
-    return puts @results[0] if points >= 30
-    return puts @results[1] if points >= 25
-    return puts @results[2] if points >= 19
-    return puts @results[3] if points >= 14
-    return puts @results[4] if points >= 9
-    return puts @results[5] if points >= 4
-    return puts @results[6] if points < 4
+  def scoring(points)
+    case points
+    when 30..32 then 0
+    when 25..29 then 1
+    when 19..24 then 2
+    when 14..23 then 3
+    when 9..13 then 4
+    when 4..8 then 5
+    else
+      return 6
+    end
   end
 end
