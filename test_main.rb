@@ -15,4 +15,4 @@ detect_result = Result.new
 
 tester.cycle_questions
 
-puts detect_result.resume[resume.scoring(tester.points)]
+puts detect_result.resume[detect_result.scoring(tester.points)]
