@@ -11,9 +11,8 @@ if Gem.win_platform?
 end
 
 tester = Test.new
-test_result = Result.new
-
-sleep 1
+detect_result = Result.new
 
 tester.cycle_questions
-test_result.set_points_score(tester.points)
+
+puts detect_result.resume[resume.scoring(tester.points)]
